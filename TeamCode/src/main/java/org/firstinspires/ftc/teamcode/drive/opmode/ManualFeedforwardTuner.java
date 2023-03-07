@@ -35,7 +35,7 @@ import java.util.Objects;
  * connect your computer to the RC's WiFi network. In your browser, navigate to
  * https://192.168.49.1:8080/dash if you're using the RC phone or https://192.168.43.1:8080/dash if
  * you are using the Control Hub. Once you've successfully connected, start the program, and your
- * robot will begin moving forward and backward according to a motion profile. Your job is to graph
+ * robot will beg in moving forward and backward according to a motion profile. Your job is to graph
  * the velocity errors over time and adjust the feedforward coefficients. Once you've found a
  * satisfactory set of gains, add them to the appropriate fields in the DriveConstants.java file.
  *
@@ -49,6 +49,7 @@ public class ManualFeedforwardTuner extends LinearOpMode {
     public static double DISTANCE = 72; // in
 
     private FtcDashboard dashboard = FtcDashboard.getInstance();
+    ;
 
     private SampleMecanumDrive drive;
 
@@ -73,6 +74,7 @@ public class ManualFeedforwardTuner extends LinearOpMode {
         }
 
         Telemetry telemetry = new MultipleTelemetry(this.telemetry, dashboard.getTelemetry());
+
 
         drive = new SampleMecanumDrive(hardwareMap);
 
@@ -129,6 +131,7 @@ public class ManualFeedforwardTuner extends LinearOpMode {
                     telemetry.addData("targetVelocity", motionState.getV());
                     telemetry.addData("measuredVelocity", currentVelo);
                     telemetry.addData("error", motionState.getV() - currentVelo);
+
                     break;
                 case DRIVER_MODE:
                     if (gamepad1.b) {
